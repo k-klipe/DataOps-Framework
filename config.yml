@@ -1,0 +1,19 @@
+check_name: "project_name"
+owner: "gerasimov"
+alert_users: "@users"
+check_type: "percentage_deviation"
+schedule: "0 7 * * *"
+queries:
+    source: 
+        db: "vertica"
+        connection_id: "id"
+        query: "source.sql"
+        date_column: "report_date"
+        value_column: "quantity"
+threshold: 0.01
+larger: False
+abs: True
+text: "Проект за последние 3 дня не полон"
+send_always: False
+send_graph: False
+send_details: True
